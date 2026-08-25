@@ -1,0 +1,195 @@
+.report-flow {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: var(--space-5) var(--space-4) var(--space-7);
+  min-height: 100%;
+}
+
+.step__question {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  margin: 0 0 var(--space-2);
+  line-height: 1.25;
+}
+
+.step__hint {
+  color: var(--color-text-muted);
+  margin: 0 0 var(--space-5);
+}
+
+.step__notice {
+  background: var(--color-warning-bg);
+  border: 1px solid var(--color-warning-border);
+  color: var(--color-warning-text);
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  margin: var(--space-2) 0 var(--space-4);
+}
+
+.step__error {
+  background: var(--color-warning-bg);
+  border: 1px solid var(--color-danger);
+  color: var(--color-danger);
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  margin-top: var(--space-3);
+}
+
+.step__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.step__actions--stacked {
+  margin-bottom: var(--space-5);
+}
+
+.step__emergency-hint {
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.step__emergency-link {
+  color: var(--color-danger);
+  font-weight: 700;
+}
+
+.step__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--space-6);
+}
+
+/* --- Category grid (step 2) --- */
+.category-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+.category-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  min-height: 100px;
+  padding: var(--space-4);
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  text-align: left;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.category-card:hover {
+  border-color: var(--color-primary);
+}
+
+.category-card--selected {
+  border-color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 8%, var(--color-surface));
+}
+
+.category-card__icon {
+  font-size: var(--text-xl);
+}
+
+.category-card__label {
+  font-weight: 600;
+  font-size: var(--text-sm);
+}
+
+/* --- Location step --- */
+.location-confirm {
+  font-weight: 600;
+  color: var(--color-safe);
+  margin-bottom: var(--space-2);
+}
+
+.field-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+}
+
+.field-textarea {
+  width: 100%;
+  padding: var(--space-3);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  resize: vertical;
+  min-height: 88px;
+}
+
+.field-textarea:focus {
+  border-color: var(--color-primary);
+}
+
+/* --- Review step --- */
+.review-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  margin: 0 0 var(--space-5);
+  overflow: hidden;
+}
+
+.review-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.review-row:last-child {
+  border-bottom: none;
+}
+
+.review-row__label {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.review-row__value {
+  margin: var(--space-1) 0 0;
+  font-weight: 600;
+}
+
+/* --- Submitted / offline states --- */
+.offline-banner {
+  background: var(--color-warning-bg);
+  border: 1px solid var(--color-warning-border);
+  color: var(--color-warning-text);
+  padding: var(--space-4);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-5);
+}
+
+.safety-guidance {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.safety-guidance__title {
+  font-weight: 700;
+  margin: 0 0 var(--space-2);
+}
+
+.safety-guidance ul {
+  margin: 0;
+  padding-left: var(--space-5);
+}
+
+.safety-guidance li {
+  margin-bottom: var(--space-1);
+}

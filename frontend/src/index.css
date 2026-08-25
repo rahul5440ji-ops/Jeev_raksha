@@ -1,0 +1,111 @@
+/*
+  Design tokens.
+
+  This is a stress-use safety tool (ux-spec.md sec1), not a marketing
+  surface — every choice here is in service of that:
+  - Color used as a functional signal (danger vs. calm), never decoration.
+  - System font stack: no webfont load delay for someone on a slow
+    connection mid-emergency.
+  - Large base sizing + spacing scale built around 56dp minimum tap
+    targets (ux-spec sec 3.1/3.2 accessibility notes).
+  - Motion kept to short, purposeful transitions only; respects
+    prefers-reduced-motion.
+*/
+
+:root {
+  /* --- Color: functional, not decorative --- */
+  --color-bg: #FAFAF7;
+  --color-surface: #FFFFFF;
+  --color-text: #1C1E1B;
+  --color-text-muted: #5A5F58;
+  --color-border: #DDDDD6;
+
+  --color-primary: #2F5233;        /* calm forest green — brand, non-urgent actions */
+  --color-primary-hover: #26421F;
+  --color-primary-contrast: #FFFFFF;
+
+  --color-danger: #C43E1E;         /* "I need help now" / emergency-only */
+  --color-danger-hover: #A5341A;
+  --color-danger-contrast: #FFFFFF;
+
+  --color-safe: #2F6B3A;
+  --color-warning-bg: #FFF4E5;
+  --color-warning-border: #E8A33D;
+  --color-warning-text: #7A4B0A;
+
+  --color-focus: #1B6FD1;
+
+  /* --- Type: system stack, no load delay --- */
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-base: 1.0625rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 1.875rem;
+
+  /* --- Spacing scale --- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  /* --- Shape --- */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+
+  /* --- Tap targets: 56dp minimum per ux-spec accessibility notes --- */
+  --tap-target-min: 56px;
+
+  --shadow-sm: 0 1px 2px rgba(28, 30, 27, 0.06);
+  --shadow-md: 0 4px 16px rgba(28, 30, 27, 0.10);
+
+  --transition-fast: 120ms ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Visible keyboard focus everywhere — never suppressed */
+:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

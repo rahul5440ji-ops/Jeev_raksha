@@ -1,0 +1,23 @@
+.progress {
+  margin-bottom: var(--space-5);
+}
+
+.progress__text {
+  display: block;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.progress__track {
+  height: 4px;
+  background: var(--color-border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress__fill {
+  height: 100%;
+  background: var(--color-primary);
+  transition: width var(--transition-fast);
+}
