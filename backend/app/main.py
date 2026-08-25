@@ -2,14 +2,15 @@
 JeevRaksha backend — FastAPI application entrypoint.
 
 This is intentionally minimal at this stage of the build: it wires up
-config, CORS, and a health check. Feature routers (auth, incidents,
-uploads, animal-id, risk-assessment, admin, responder workflow) are
-added incrementally in later steps and included here via
-`app.include_router(...)`.
+config, CORS, a health check, and the incidents router. Remaining
+feature routers (auth, uploads, animal-id, risk-assessment, admin,
+responder workflow) are added incrementally in later steps and
+included here via `app.include_router(...)`.
 """
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.api.incidents import router as incidents_router
 from app.core.config import get_settings
 
 settings = get_settings()
@@ -31,6 +32,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+app.include_router(incidents_router)
 
 
 @app.get("/health", tags=["system"])

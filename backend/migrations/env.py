@@ -18,10 +18,9 @@ sys.path.append(str(Path(__file__).resolve().parents[1]))
 from app.core.config import get_settings  # noqa: E402
 from app.db.base import Base  # noqa: E402
 
-# NOTE: as new ORM model modules are added (e.g. app.models.user,
-# app.models.incident), import them here so Base.metadata is complete
-# before autogenerate runs. Example (added in the auth step):
-#   from app.models import user  # noqa: F401
+# NOTE: as new ORM model modules are added (e.g. app.models.user),
+# import them here so Base.metadata is complete before autogenerate runs.
+from app.models import incident  # noqa: F401
 
 config = context.config
 
